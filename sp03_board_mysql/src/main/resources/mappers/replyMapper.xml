@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="replyMapper">
+	
+	<!-- 생성된 bnum리턴 -->
+	<insert id="insert" parameterType="ReplyDTO">
+		insert into reply (bnum, content, writer)
+		values (#{bnum}, #{content}, #{writer})
+	</insert>
+	
+	<select id="selectList" resultType="ReplyDTO">
+		select * from reply
+		where bnum = #{bnum}
+		order by rnum
+	</select>	
+	
+	<delete id="delete">
+		delete from reply
+		where rnum = #{rnum}
+	</delete>
+	
+	<delete id="delete_bnum">
+		delete from reply
+		where bnum = #{bnum}
+	</delete>
+	
+	<update id="update">
+		update reply
+		set content = #{content}
+		where rnum = #{rnum}
+	</update>
+
+	
+	
+	
+	
+</mapper>
